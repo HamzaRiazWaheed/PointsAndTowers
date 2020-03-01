@@ -48,11 +48,12 @@
         <span class="single-input-boxes-wrapper">
           X: <input type="number" min="-400" max="400" v-model="tooltip.data[0]"><br />
           Y: <input type="number" min="-400" max="400" v-model="tooltip.data[1]"><br />
-          Reach :<input type="number" min="0" max="100" v-if="tooltip.type == 'tower'" v-model="tooltip.data[2]">
+          <span v-if="tooltip.type == 'tower'">Reach :<input type="number" min="0" max="100" v-model="tooltip.data[2]"></span>
         </span>
         <div class="delete-button" @click="deleteThis()">Delete</div>
       </div>
     </div>
+    <div class="note">Click on Tower (circle) or Point (red dot) to see the tooltip to edit it</div>
     <div class="controls">
 
       <div class="zoom-contol">
@@ -206,6 +207,12 @@ svg#graph-svg {
 
 .tooltip-editor strong {
     text-transform: capitalize;
+}
+
+.note {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 14px;
 }
 
 span.single-input-boxes-wrapper {
